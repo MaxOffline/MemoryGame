@@ -66,10 +66,9 @@ let UpdateScores = () =>
 let HandleElement = id => 
 {
     let findItem = document.getElementById(id);
-    if (findItem.style.backgroundColor !== "#dcdceab0")
+    if (findItem.style.backgroundColor !== "rgb(192, 192, 192)")
     {
         findItem.style.backgroundColor = findItem.className;
-        // findItem.innerText = findItem.className;
         matches.push(findItem.className);
         ids.push(findItem.id)
     }
