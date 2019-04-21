@@ -28,10 +28,24 @@ let NotMatched = () =>
   },500); 
 }
 
+let ClearElements = (cls1, cls2) => 
+{
+    let class1 = document.querySelectorAll(`.${cls1}`)
+    .forEach(element => element.style.backgroundColor = "#440707fa");
+
+    let class2 = document.querySelectorAll(`.${cls2}`)
+    .forEach(element => element.style.backgroundColor = "#440707fa")
+}
+
 let UpdateMatchedEelements = cls => 
 {
     let items = document.querySelectorAll(`.${cls}`)
-    items.forEach(element => element.innerHTML = "&#10024;")
+    items.forEach(element => 
+    {
+        element.style.backgroundColor = "#c0c0c0";
+        element.style.border = "none";
+        element.style.boxShadow = "none";
+    })
 }
   
   
@@ -52,9 +66,10 @@ let UpdateScores = () =>
 let HandleElement = id => 
 {
     let findItem = document.getElementById(id);
-    if (findItem.innerText !== "✨")
+    if (findItem.style.backgroundColor !== "#dcdceab0")
     {
-        findItem.innerText = findItem.className;
+        findItem.style.backgroundColor = findItem.className;
+        // findItem.innerText = findItem.className;
         matches.push(findItem.className);
         ids.push(findItem.id)
     }
@@ -64,14 +79,7 @@ let HandleElement = id =>
 }
 
 
-let ClearElements = (cls1, cls2) => 
-{
-    let class1 = document.querySelectorAll(`.${cls1}`)
-    .forEach(element => element.innerText = '');
 
-    let class2 = document.querySelectorAll(`.${cls2}`)
-    .forEach(element => element.innerText = "")
-}
 
 
 let ElementsInMatches = id => 
